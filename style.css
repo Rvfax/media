@@ -1,42 +1,29 @@
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
 body, html {
     height: 100%;
-    /* Background image */
-
     background-image: url(img/bg.jpg);
     background-size: cover;
     font-family: "Courier New", Courier, monospace;
     font-size: 25px;
     color: white;
+    margin: 0;
     position: relative;
-  }
+    display: flex;
+    flex-direction: column;  /* Układanie elementów w kolumnie */
+    justify-content: center;  /* Wyśrodkowanie zawartości w pionie */
+}
 
-  
-  /* Position text in the middle */
-  .middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  /* Style the <hr> element */
-  hr {
-    margin: auto;
-    width: 40%;
-  }
-
-  /* Stylizacja menu */
+/* Nawigacja */
 .nav {
     position: fixed;
     top: 0;
-    left: -250px; /* Ukryte na starcie */
+    left: -250px;  /* Menu ukryte na początku */
     width: 250px;
-    height: 100vh;
+    height: 100vh;  /* Menu zajmuje całą wysokość ekranu */
     background: rgba(0, 0, 0, 0.9);
     transition: 0.3s;
     padding-top: 50px;
+    z-index: 1000;  /* Menu nad tekstem */
 }
 
 .nav a {
@@ -62,7 +49,7 @@ body, html {
     top: 20px;  /* W górze */
     left: 20px;  /* Z lewej */
     cursor: pointer;
-    z-index: 1000;  /* Upewniamy się, że logo będzie nad innymi elementami */
+    z-index: 1001;  /* Logo nad menu */
 }
 
 /* Styl loga */
@@ -77,4 +64,34 @@ body, html {
     transform: scale(2.5);  /* Powiększenie logo */
     height: auto;  /* Utrzymanie proporcji */
     margin-left: 50px;
+}
+
+/* Tekst w środkowej części ekranu */
+.middle {
+    position: relative;
+    top: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);  /* Wyśrodkowanie w poziomie */
+    z-index: 999;  /* Tekst poniżej menu */
+    margin-top: 30px;  /* Odstęp od góry */
+}
+
+/* Styl <hr> */
+hr {
+    margin: auto;
+    width: 40%;
+}
+
+/* Media query dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    /* Zmiany na urządzeniach mobilnych */
+    .middle {
+        margin-top: 150px;  /* Zapewnienie większego odstępu od menu na telefonie */
+    }
+}
+
+/* Ustawienie marginesu górnego dla .middle, gdy menu jest otwarte */
+.nav.open + .main .middle {
+    margin-top: 80px;  /* Zmniejszamy margines do 80px, aby tekst był wyżej */
 }
