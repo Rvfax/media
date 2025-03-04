@@ -1,0 +1,80 @@
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+body, html {
+    height: 100%;
+    /* Background image */
+
+    background-image: url(img/bg.jpg);
+    background-size: cover;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+    color: white;
+    position: relative;
+  }
+
+  
+  /* Position text in the middle */
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Style the <hr> element */
+  hr {
+    margin: auto;
+    width: 40%;
+  }
+
+  /* Stylizacja menu */
+.nav {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Ukryte na starcie */
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    transition: 0.3s;
+    padding-top: 50px;
+}
+
+.nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Styl otwartego menu */
+.nav.open {
+    left: 0;
+}
+
+/* Kontener logo */
+.logo-container {
+    position: fixed;  /* Zmienia pozycję na stałą, niezależną od przewijania */
+    top: 20px;  /* W górze */
+    left: 20px;  /* Z lewej */
+    cursor: pointer;
+    z-index: 1000;  /* Upewniamy się, że logo będzie nad innymi elementami */
+}
+
+/* Styl loga */
+.logo-container img {
+    width: 20%; /* Początkowy rozmiar */
+    transition: transform 0.3s ease; /* Płynne przejście transformacji */
+    transform-origin: center;  /* Skalowanie od środka */
+}
+
+/* Nowy rozmiar loga po otwarciu menu */
+.new-size {
+    transform: scale(2.5);  /* Powiększenie logo */
+    height: auto;  /* Utrzymanie proporcji */
+    margin-left: 50px;
+}
