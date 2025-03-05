@@ -1,6 +1,7 @@
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
 body, html {
     height: 100%;
+    background-color: rgb(20, 20, 52);
     background-image: url(img/bg.jpg);
     background-size: cover;
     font-family: "Courier New", Courier, monospace;
@@ -11,7 +12,46 @@ body, html {
     display: flex;
     flex-direction: column;  /* Układanie elementów w kolumnie */
     justify-content: center;  /* Wyśrodkowanie zawartości w pionie */
+    background-attachment: fixed;
 }
+
+
+
+    /* Kontakt */
+
+#kontakt {
+    background: rgba(255, 255, 255, 0.663);
+    width: auto;
+    padding: 50px;
+    padding-top: 0;
+    height: auto;
+    max-height: 80%;
+    max-width: 70%;
+    text-align: center;
+    border-radius: 10px;
+    margin: auto;
+}
+
+#kontakt a {
+    color: white;
+    text-decoration: none;
+}
+
+.kt{
+    border-radius: 10px;
+    height: 30px;
+    width: 300px;
+    margin: 5px;
+}
+
+.kt:hover{
+    cursor: pointer;
+}
+
+
+
+
+    /* Menu */
 
 /* Nawigacja */
 .nav {
