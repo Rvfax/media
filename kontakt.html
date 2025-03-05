@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTmedia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favico.ico">
+    <link rel="preload" href="img/bg.jpg" as="image">
+</head>
+<body>
+
+    <!-- Nawigacja -->
+    <div id="sidebar" class="nav">
+        <br>
+        <a href="index.html">Strona Główna</a>
+        <a href="#">O Nas</a>
+        <a href="kontakt.html">Kontakt</a>
+    </div>
+
+        <!-- Logo -->
+        <div class="logo-container" onclick="toggleMenu()">
+            <img src="img/Logo1.png" alt="Logo" id="logo">
+        </div>
+
+        
+
+   <!-- Strona -->
+
+   
+   <div id="kontakt">
+
+    <form action="https://ratufa.io/form/send" method="post" novalidate>
+        <h2>Kontakt</h2>
+        <input class="kt" type="text" name="Imię i Nazwisko:" placeholder="Imię i Nazwisko / Nazwa Firmy" required><br>
+        <input class="kt" type="text" name="Mail:" placeholder="E-mail" required><br>
+        <textarea name="Wiadomość:" class="kt" placeholder="Twoja Wiadomość" rows="4" style="height: auto;" required></textarea><br>
+        <input type="submit" value="Prześlij Formularz" class="kt">
+    </form>
+
+    </div>
+
+
+    <script>
+      let isOpen = false;
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const logo = document.getElementById('logo');
+
+    isOpen = !isOpen;
+    sidebar.classList.toggle('open', isOpen);
+
+    if (isOpen) {
+        logo.src = 'img/Logo.png';  // Nowe logo
+        logo.classList.add('new-size');  // Dodanie klasy zmieniającej rozmiar
+    } else {
+        logo.src = 'img/Logo1.png';  // Powrót do starego logo
+        logo.classList.remove('new-size');  // Usunięcie klasy, przywracając stary rozmiar
+    }
+}
+  </script>
+    
+
+
+    <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=g4q7er7w&n=n1.ratufa.io"></script>
+</body>
+</html>
