@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTmedia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favico.ico">
+    <link rel="preload" href="img/bg.jpg" as="image">
+</head>
+<body>
+
+    <!-- Nawigacja -->
+    <div id="sidebar" class="nav">
+        <br>
+        <a href="index.html">Strona Główna</a>
+        <a href="info.html">O Nas</a>
+        <a href="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-container" onclick="toggleMenu()">
+        <img src="img/Logo1.png" alt="Logo" id="logo">
+    </div>
+
+
+        <div id="content">
+            <h2>O nas – RTmedia</h2>
+Witaj w RTmedia – działalność, która pomaga małym biznesom zaistnieć w sieci. Tworzymy nowoczesne, responsywne i funkcjonalne strony internetowe dla przedsiębiorców z Garwolina, okolic i nie tylko. <br><br>
+
+Naszą misją jest wspieranie mniejszych firm w budowaniu profesjonalnego wizerunku online. Wiemy, jak ważna jest dziś widoczność w internecie, dlatego projektujemy strony, które nie tylko świetnie wyglądają, ale również przyciągają klientów i ułatwiają im kontakt z Twoją firmą. <br><br>
+
+Dopiero rozpoczynamy swoją działalność, ale nasza pasja do nowoczesnych technologii i indywidualne podejście do każdego projektu sprawiają, że możesz liczyć na pełne zaangażowanie i najwyższą jakość usług. <br><br>
+
+Jeśli chcesz wyróżnić się w sieci i sprawić, by klienci mogli łatwiej znaleźć Twoją firmę – skontaktuj się z nami! Razem stworzymy stronę, która będzie wizytówką Twojego biznesu. <br>
+
+<p><a href="kontakt.html"><b>📩 Skontaktuj się z nami i zacznij budować swoją obecność online!</b></a></p>
+        </div>
+
+
+    <script>
+        let isOpen = false;
+  function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const logo = document.getElementById('logo');
+  
+      isOpen = !isOpen;
+      sidebar.classList.toggle('open', isOpen);
+  
+      if (isOpen) {
+          logo.src = 'img/Logo.png';  // Nowe logo
+          logo.classList.add('new-size');  // Dodanie klasy zmieniającej rozmiar
+      } else {
+          logo.src = 'img/Logo1.png';  // Powrót do starego logo
+          logo.classList.remove('new-size');  // Usunięcie klasy, przywracając stary rozmiar
+      }
+  }
+    </script>
+    
+</body>
+</html>
