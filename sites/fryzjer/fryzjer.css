@@ -4,15 +4,16 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+    background: #faf5f0; /* Jasne tło */
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Zablokowanie przewijania poziomego */
-    overflow-y: auto;   /* Przewijanie w pionie */
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
     z-index: 1;
 }
 
 html {
-    overflow-x: hidden; /* Zablokowanie przewijania poziomego */
+    overflow-x: hidden;
 }
 
 /* Blokowanie przewijania strony */
@@ -25,18 +26,18 @@ html {
     left: 0;
 }
 
-
 header {
-    background: #222;
-    color: white;
+    background: #fff;
+    color: #d4af37; /* Złoty kolor nagłówka */
     text-align: center;
     padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* Nawigacja */
-/* Nawigacja */
 nav {
-    background: #444;
+    background: #fff;
     padding: 10px;
     text-align: center;
     position: sticky;
@@ -44,47 +45,47 @@ nav {
     width: 100%;
     z-index: 1000;
     display: block;
-    transition: all 0.3s ease;  /* Dodajemy płynne przejście dla stylów */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Na początek, nie przyklejamy nav na stałe */
 .nav-fixed {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
-    color: white;
+    color: #333;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
+    font-weight: bold;
 }
 
 nav a:hover {
-    color: #FFD700;  /* Kolor zmienia się na złoty po najechaniu */
-    text-decoration: underline; /* Podkreślenie linków */
+    color: #d4af37; /* Złoty kolor hover */
+    text-decoration: underline;
 }
 
 /* Kontener główny */
 .container {
     width: 100%;
     text-align: center;
-    max-width: 1200px; /* Maksymalna szerokość kontenera */
+    max-width: 1200px;
     margin: auto;
     padding: 20px;
-    box-sizing: border-box; /* Zapewnia, że padding nie będzie powiększał szerokości elementu */
+    box-sizing: border-box;
     position: relative;
     z-index: 0;
 }
 
 /* Sekcja mapy */
 #map iframe {
-    width: 100%;  /* Ustalamy szerokość mapy na 100% dostępnej szerokości kontenera */
-    max-width: 100%; /* Zabezpiecza przed wychodzeniem mapy poza ekran */
+    width: 100%;
+    max-width: 100%;
     height: 450px;
     border: 0;
 }
@@ -99,7 +100,7 @@ nav a:hover {
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Odstępy między obrazkami */
+    gap: 20px;
 }
 
 .gallery .item {
@@ -107,15 +108,16 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 300px; /* Maksymalna szerokość dla każdego obrazka */
+    max-width: 300px;
     text-align: center;
 }
 
 .gallery img {
     width: 30%;
     height: auto;
-    max-width: 300px; /* Ustawiamy maksymalną szerokość zdjęć */
+    max-width: 300px;
     border-radius: 10px;
+    border: 3px solid #d4af37; /* Złota ramka */
 }
 
 .gallery img:hover {
@@ -128,9 +130,9 @@ nav a:hover {
     color: #333;
 }
 
-#contact{
-    background: #444;
-    color: white;
+#contact {
+    background: #f8f1e7; /* Jasne złamane tło */
+    color: #333;
     text-align: center;
     padding: 10px;
     width: 100%;
@@ -138,8 +140,8 @@ nav a:hover {
 
 /* Sekcja stopki */
 footer {
-    background: #222;
-    color: white;
+    background: #f0e5d7;
+    color: #333;
     text-align: center;
     padding: 10px;
 }
@@ -156,7 +158,7 @@ ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 1px dotted #d4af37;
     padding: 5px 0;
 }
 
@@ -165,8 +167,7 @@ ul li {
     text-align: left;
 }
 
-
-/* Lightbox - efekt powiększenia */
+/* Lightbox */
 .lightbox {
     display: none;
     position: fixed;
@@ -182,8 +183,8 @@ ul li {
 
 .close {
     position: absolute;
-    top: 70px;
-    right: 40px;
+    top: 10px;
+    right: 10px;
     color: white;
     font-size: 40px;
     font-weight: bold;
@@ -195,4 +196,25 @@ ul li {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
+}
+
+/* Strzałki nawigacyjne w lightboxie */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
