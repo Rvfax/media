@@ -26,7 +26,6 @@
         <section id="about" class="section">
             <br>
             <h2>O nas</h2>
-            <p>Jesteśmy profesjonalnym salonem fryzjerskim, który dba o Twój wygląd i dobre samopoczucie. Nasz zespół doświadczonych stylistów pomoże Ci znaleźć idealną fryzurę.</p>
             <p><b><i>(Tutaj mogą być informacje o twoim salonie)</i></b></p>
         </section>
         
@@ -54,10 +53,12 @@
         </section>
 
         <!-- Lightbox -->
-        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-            <span class="close">&times;</span>
-            <img id="lightbox-img" class="lightbox-img">
-        </div>
+<div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+    <img id="lightbox-img" class="lightbox-img">
+    <span class="next" onclick="changeImage(1)">&#10095;</span>
+</div>
         
         <section id="reviews" class="section">
             <br>
@@ -90,11 +91,21 @@
 
 
     <script>
+let images = []; // Tablica z obrazkami
+let currentIndex = 0; // Index aktualnego obrazka
 let scrollPosition = 0;
+
+// Pobierz wszystkie obrazki galerii
+document.addEventListener("DOMContentLoaded", () => {
+    images = Array.from(document.querySelectorAll(".gallery img"));
+});
 
 function openLightbox(img) {
     // Zapisz pozycję scrolla
     scrollPosition = window.scrollY;
+
+    // Znajdź index klikniętego zdjęcia
+    currentIndex = images.findIndex(image => image.src === img.src);
 
     // Pokaż lightbox
     document.getElementById("lightbox").style.display = "flex";
@@ -102,7 +113,19 @@ function openLightbox(img) {
 
     // Zablokuj przewijanie
     document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollPosition}px`; // Zablokuj przewijanie i zapamiętaj pozycję
+    document.body.style.top = `-${scrollPosition}px`;
+}
+
+// Zmiana obrazka w lightboxie
+function changeImage(direction) {
+    currentIndex += direction;
+
+    // Zapętlanie obrazków
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    if (currentIndex >= images.length) currentIndex = 0;
+
+    // Ustaw nowy obrazek
+    document.getElementById("lightbox-img").src = images[currentIndex].src;
 }
 
 function closeLightbox() {
@@ -116,6 +139,7 @@ function closeLightbox() {
     // Przywróć pozycję scrolla
     window.scrollTo(0, scrollPosition);
 }
+
 
 
 
