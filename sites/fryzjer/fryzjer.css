@@ -1,0 +1,198 @@
+/* Podstawowy styl */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Zablokowanie przewijania poziomego */
+    overflow-y: auto;   /* Przewijanie w pionie */
+    position: relative;
+    z-index: 1;
+}
+
+html {
+    overflow-x: hidden; /* Zablokowanie przewijania poziomego */
+}
+
+/* Blokowanie przewijania strony */
+.no-scroll {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+header {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Nawigacja */
+/* Nawigacja */
+nav {
+    background: #444;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: block;
+    transition: all 0.3s ease;  /* Dodajemy płynne przejście dla stylów */
+}
+
+/* Na początek, nie przyklejamy nav na stałe */
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #FFD700;  /* Kolor zmienia się na złoty po najechaniu */
+    text-decoration: underline; /* Podkreślenie linków */
+}
+
+/* Kontener główny */
+.container {
+    width: 100%;
+    text-align: center;
+    max-width: 1200px; /* Maksymalna szerokość kontenera */
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box; /* Zapewnia, że padding nie będzie powiększał szerokości elementu */
+    position: relative;
+    z-index: 0;
+}
+
+/* Sekcja mapy */
+#map iframe {
+    width: 100%;  /* Ustalamy szerokość mapy na 100% dostępnej szerokości kontenera */
+    max-width: 100%; /* Zabezpiecza przed wychodzeniem mapy poza ekran */
+    height: 450px;
+    border: 0;
+}
+
+/* Sekcje */
+.section {
+    margin: 40px 0;
+}
+
+/* Galeria */
+.gallery {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Odstępy między obrazkami */
+}
+
+.gallery .item {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px; /* Maksymalna szerokość dla każdego obrazka */
+    text-align: center;
+}
+
+.gallery img {
+    width: 30%;
+    height: auto;
+    max-width: 300px; /* Ustawiamy maksymalną szerokość zdjęć */
+    border-radius: 10px;
+}
+
+.gallery img:hover {
+    cursor: pointer;
+}
+
+.gallery .item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#contact{
+    background: #444;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Sekcja stopki */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Lista usług */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: auto;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dotted #ccc;
+    padding: 5px 0;
+}
+
+.service-name {
+    flex: 1;
+    text-align: left;
+}
+
+
+/* Lightbox - efekt powiększenia */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.close {
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Zmiana rozmiaru obrazka w lightboxie */
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}

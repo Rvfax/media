@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Fryzjerski - Przykładowa Strona</title>
+    <link rel="stylesheet" href="fryzjer.css">
+    <link rel="icon" href="favico.ico">
+</head>
+<body>
+    <header id="header">
+        <h1>Salon Fryzjerski</h1>
+        <p>Profesjonalna pielęgnacja Twoich włosów</p>
+    </header>
+    
+    <nav>
+        <a href="#header">↑</a>
+        <a href="#services">Usługi</a>
+        <a href="#gallery">Galeria</a>
+        <a href="#about"> nas</a>
+        <a href="#reviews">Opinie</a>
+        <a href="#map">Lokalizacja</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+    
+    <div class="container">
+        <section id="about" class="section">
+            <br>
+            <h2>O nas</h2>
+            <p>Jesteśmy profesjonalnym salonem fryzjerskim, który dba o Twój wygląd i dobre samopoczucie. Nasz zespół doświadczonych stylistów pomoże Ci znaleźć idealną fryzurę.</p>
+            <p><b><i>(Tutaj mogą być informacje o twoim salonie)</i></b></p>
+        </section>
+        
+        <section id="services" class="section">
+            <br>
+            <h2>Usługi</h2>
+            <ul>
+                <li>Strzyżenie męskie - 50 zł</li>
+                <li>Strzyżenie damskie - 80 zł</li>
+                <li>Koloryzacja - od 150 zł</li>
+                <li>Stylizacja okolicznościowa - 100 zł</li>
+                <p><b><i>(Tutaj może być Twój cennik)</i></b></p>
+            </ul>
+        </section>
+        
+        <section id="gallery" class="section gallery">
+            <br>
+            <h2>Galeria</h2>
+            <img src="f.img/f1.png" alt="Przykładowa fryzura" onclick="openLightbox(this)">
+            <img src="f.img/f2.jpg" alt="Przykładowa fryzura" onclick="openLightbox(this)">
+            <img src="f.img/f3.jpg" alt="Przykładowa fryzura" onclick="openLightbox(this)">
+            <img src="f.img/f4.jpg" alt="Przykładowa fryzura" onclick="openLightbox(this)">
+            <img src="f.img/f5.jpg" alt="Przykładowa fryzura" onclick="openLightbox(this)">
+            <p><b><i>(Tutaj może być galeria twoich zdjęć fryzur/salonu)</i></b></p>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close">&times;</span>
+            <img id="lightbox-img" class="lightbox-img">
+        </div>
+        
+        <section id="reviews" class="section">
+            <br>
+            <h2>Opinie klientów</h2>
+            <p>"Najlepszy salon fryzjerski! Profesjonalna obsługa i świetna atmosfera." - Anna</p>
+            <p>"Jestem bardzo zadowolony z nowej fryzury. Polecam każdemu!" - Piotr</p>
+            <p><b><i>(Tutaj mogą być opinie Twoich klientów)</i></b></p>
+        </section>
+
+        <section id="map" class="section">
+            <br>
+            <h2>Nasza Lokalizacja</h2>
+            <iframe id="mapa" src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p><b><i>(Tutaj może być mapa dojazdu do Twojego salonu)</i></b></p>
+        </section>
+    </div>
+        
+        <section id="contact">
+            <br>
+            <h2>Kontakt</h2>
+            <p>📍 Adres: </p>
+            <p>📞 Telefon: </p>
+            <p>⏰ Godziny otwarcia: </p>
+        </section>
+    
+    <footer>
+        <p>&copy; 2025 Salon Fryzjerski | Przykładowa Strona</p>
+    </footer>
+
+
+
+    <script>
+let scrollPosition = 0;
+
+function openLightbox(img) {
+    // Zapisz pozycję scrolla
+    scrollPosition = window.scrollY;
+
+    // Pokaż lightbox
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = img.src;
+
+    // Zablokuj przewijanie
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`; // Zablokuj przewijanie i zapamiętaj pozycję
+}
+
+function closeLightbox() {
+    // Ukryj lightbox
+    document.getElementById("lightbox").style.display = "none";
+
+    // Przywróć przewijanie
+    document.body.style.position = "";
+    document.body.style.top = "";
+
+    // Przywróć pozycję scrolla
+    window.scrollTo(0, scrollPosition);
+}
+
+
+
+
+// Funkcja, która przykleja nawigację do góry ekranu, kiedy przewijamy stronę
+window.onscroll = function() {stickNav()};
+
+var navbar = document.querySelector("nav");
+var sticky = navbar.offsetTop;  // Pozycja nawigacji od góry
+
+function stickNav() {
+    if (window.pageYOffset > sticky) {
+        navbar.classList.add("nav-fixed");  // Dodajemy klasę 'nav-fixed' gdy przewiniemy
+    } else {
+        navbar.classList.remove("nav-fixed");  // Usuwamy klasę, gdy wracamy na początek
+    }
+}
+    </script>
+</body>
+</html>
