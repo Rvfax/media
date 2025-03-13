@@ -35,6 +35,17 @@ header {
     font-weight: bold;
 }
 
+.scrolling-logo {
+    position: absolute;
+    top: 20px; /* Odległość od góry strony */
+    left: 20px; /* Odległość od lewej krawędzi strony */
+    width: 10%; /* Dostosuj rozmiar logo */
+    height: auto;
+    z-index: 10; /* Zabezpieczenie przed zasłanianiem przez inne elementy */
+}
+
+
+
 /* Nawigacja */
 nav {
     background: #fff;
