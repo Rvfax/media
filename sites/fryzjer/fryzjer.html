@@ -9,42 +9,44 @@
 </head>
 <body>
     <header id="header">
-        <img src="logo.png" alt="Logo" class="scrolling-logo">
+        <img src="logo.png" alt="Twoje Logo" class="scrolling-logo">
             <h1>Salon Fryzjerski</h1>
             <p>Profesjonalna pielęgnacja Twoich włosów</p>
     </header>
     
     
     <nav>
-        <a href="#services">Usługi</a>
-        <a href="#gallery">Galeria</a>
-        <a href="#about">O nas</a>
-        <a href="#reviews">Opinie</a>
-        <a href="#map">Lokalizacja</a>
-        <a href="#contact">Kontakt</a>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="#about">O nas</a></li>
+            <li><a href="#services">Usługi</a></li>
+            <li><a href="#gallery">Galeria</a></li>
+            <li><a href="#reviews">Opinie</a></li>
+            <li><a href="#map">Lokalizacja</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
     </nav>
     
     <div class="container">
         <section id="about" class="section">
-            <br>
+            <br><br><br><br>
             <h2>O nas</h2>
             <p><b><i>(Tutaj mogą być informacje o twoim salonie)</i></b></p>
         </section>
         
         <section id="services" class="section">
-            <br>
+            <br><br><br><br>
             <h2>Usługi</h2>
-            <ul>
-                <li>Strzyżenie męskie - 50 zł</li>
-                <li>Strzyżenie damskie - 80 zł</li>
-                <li>Koloryzacja - od 150 zł</li>
-                <li>Stylizacja okolicznościowa - 100 zł</li>
-                <p><b><i>(Tutaj może być Twój cennik)</i></b></p>
-            </ul>
+            <table class="service-table">
+                <tr><td>Strzyżenie męskie</td><td>50 zł</td></tr>
+                <tr><td>Strzyżenie damskie</td><td>80 zł</td></tr>
+                <tr><td>Koloryzacja</td><td>od 150 zł</td></tr>
+                <tr><td>Stylizacja okolicznościowa</td><td>100 zł</td></tr>
+            </table>
         </section>
         
         <section id="gallery" class="section gallery">
-            <br>
+            <br><br><br><br>
             <h2>Galeria</h2>
             <img src="f.img/f1.png" alt="Przykładowa fryzura" onclick="openLightbox(this)">
             <img src="f.img/f2.jpg" alt="Przykładowa fryzura" onclick="openLightbox(this)">
@@ -63,7 +65,7 @@
 </div>
         
         <section id="reviews" class="section">
-            <br>
+            <br><br><br><br>
             <h2>Opinie klientów</h2>
             <p>"Najlepszy salon fryzjerski! Profesjonalna obsługa i świetna atmosfera." - Anna</p>
             <p>"Jestem bardzo zadowolony z nowej fryzury. Polecam każdemu!" - Piotr</p>
@@ -71,13 +73,14 @@
         </section>
 
         <section id="map" class="section">
-            <br>
+            <br><br><br><br>
             <h2>Nasza Lokalizacja</h2>
             <iframe id="mapa" src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p><b><i>(Tutaj może być mapa dojazdu do Twojego salonu)</i></b></p>
         </section>
     </div>
         
+        <br><br>
         <section id="contact">
             <br>
             <h2>Kontakt</h2>
@@ -94,6 +97,24 @@
 
 
     <script>
+
+        // Menu Hamburgerowe
+function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+}
+
+// Funkcja do zamykania menu po kliknięciu na link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {  // Działa tylko na urządzeniach mobilnych
+            document.querySelector('.nav-links').classList.remove('show');
+        }
+    });
+});
+
+
+
+
 let images = []; // Tablica z obrazkami
 let currentIndex = 0; // Index aktualnego obrazka
 let scrollPosition = 0;
@@ -142,6 +163,12 @@ function closeLightbox() {
     // Przywróć pozycję scrolla
     window.scrollTo(0, scrollPosition);
 }
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+});
 
 
 
