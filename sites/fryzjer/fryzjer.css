@@ -1,9 +1,9 @@
 /* Podstawowy styl */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Nowoczesna czcionka */
+    color: #222; /* Ciemniejszy kolor dla lepszej czytelności */
     margin: 0;
     padding: 0;
-    color: #333;
     background: #faf5f0; /* Jasne tło */
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -14,6 +14,12 @@ body {
 
 html {
     overflow-x: hidden;
+}
+
+h2 {
+    font-size: 26px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 /* Blokowanie przewijania strony */
@@ -46,18 +52,66 @@ header {
 
 
 
-/* Nawigacja */
+/* ======= NAWIGACJA ======= */
 nav {
-    background: #fff;
-    padding: 10px;
+    background: #d4af37;
+    padding: 15px 0;
     text-align: center;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
-    display: block;
+    box-sizing: border-box; /* Użyj border-box dla lepszej kontroli nad szerokościami */
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Poprawione dla wersji na komputery */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    
+    width: 100%;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+}
+
+.nav-links a {
+    color: #fff;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block; /* Upewniamy się, że linki będą traktowane jako elementy blokowe w poziomie */
+    text-align: center; /* Ustawiamy na środek, żeby nie wyszły poza ekran */
+}
+
+.nav-links a:hover {
+    background: #b4942a; /* Ciemniejsze złoto */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Hamburger menu – ukrywamy na dużych ekranach */
+.hamburger {
+    display: block; /* Upewniamy się, że hamburger będzie widoczny */
+    font-size: 30px; /* Dopasowujemy rozmiar ikony */
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1001; /* Gwarantujemy, że hamburger będzie nad innymi elementami */
 }
 
 .nav-fixed {
@@ -69,7 +123,9 @@ nav {
 }
 
 nav a {
-    color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
@@ -77,8 +133,89 @@ nav a {
 }
 
 nav a:hover {
-    color: #d4af37; /* Złoty kolor hover */
-    text-decoration: underline;
+    background: #b4942a; /* Ciemniejsze złoto */
+    text-decoration: none;
+}
+
+/* Styl dla wersji mobilnej */
+@media screen and (max-width: 768px) {
+
+    nav {
+        padding: 30px 0;
+    }
+
+    .nav-links {
+        display: none; /* Ukrywamy menu, gdy nie jest rozwinięte */
+        flex-direction: column;
+        background: #d4af37; /* Złote tło */
+        position: absolute;
+        top: 60px; /* Ustawienie tuż pod paskiem nawigacyjnym */
+        left: 0;
+        width: 100%;
+        padding: 0; /* Brak dodatkowego paddingu */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        margin: 0; /* Upewniamy się, że nie ma marginesów */
+    }
+
+    
+    /* Styl, gdy menu jest rozwinięte */
+    .nav-links.show {
+    display: flex; /* Pokazujemy menu */
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 15px 0; /* Ustawiamy odpowiednią przestrzeń między linkami */
+        margin: 0;
+        white-space: nowrap; /* Zapewniamy, że teksty się nie zawijają */
+    }
+
+    /* Ustawienie dla linków */
+    .nav-links a {
+        padding: 10px 15px;
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff;
+        display: block; /* Umożliwiamy kliknięcie na cały obszar linku */
+    }
+
+    .nav-links a:hover {
+        background: #b4942a; /* Ciemniejsze złoto */
+        text-decoration: none;
+    }
+
+    .nav-links {
+        width: 100%;
+    }
+
+    
+/* Ustawienie dla hamburgera */
+.hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1100;
+}
+    
+}
+
+@media screen and (min-width: 768px) {
+    /* Gdy ekran jest większy, menu powinno wyświetlać się w poziomie */
+    .nav-links {
+        display: flex; /* Menu w poziomie */
+        justify-content: center; /* Wyrównanie do środka */
+    }
+
+    .hamburger {
+        display: none; /* Ukrywamy hamburgera na większych ekranach */
+    }
 }
 
 /* Kontener główny */
@@ -91,6 +228,7 @@ nav a:hover {
     box-sizing: border-box;
     position: relative;
     z-index: 0;
+    overflow: hidden;
 }
 
 /* Sekcja mapy */
@@ -104,6 +242,28 @@ nav a:hover {
 /* Sekcje */
 .section {
     margin: 40px 0;
+}
+
+/* Usługi */
+.service-table {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.service-table td {
+    padding: 10px;
+    border-bottom: 1px dotted #d4af37;
+}
+
+.service-table td:first-child {
+    text-align: left;
+}
+
+.service-table td:last-child {
+    text-align: right;
+    font-weight: bold;
 }
 
 /* Galeria */
@@ -124,21 +284,29 @@ nav a:hover {
 }
 
 .gallery img {
-    width: 30%;
-    height: auto;
-    max-width: 300px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 10px;
-    border: 3px solid #d4af37; /* Złota ramka */
+    transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .gallery .item p {
     margin-top: 10px;
     font-size: 16px;
     color: #333;
+}
+
+@media (max-width: 600px) {
+    .gallery img{
+        width: 30%;
+        height: 100px;
+    }
 }
 
 #contact {
