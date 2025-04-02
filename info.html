@@ -39,23 +39,40 @@ Jeśli chcesz wyróżnić się w sieci i sprawić, by klienci mogli łatwiej zna
 
 
     <script>
-        let isOpen = false;
-  function toggleMenu() {
-      const sidebar = document.getElementById('sidebar');
-      const logo = document.getElementById('logo');
-  
-      isOpen = !isOpen;
-      sidebar.classList.toggle('open', isOpen);
-  
-      if (isOpen) {
-          logo.src = 'img/Logo.png';  // Nowe logo
-          logo.classList.add('new-size');  // Dodanie klasy zmieniającej rozmiar
-      } else {
-          logo.src = 'img/Logo1.png';  // Powrót do starego logo
-          logo.classList.remove('new-size');  // Usunięcie klasy, przywracając stary rozmiar
-      }
-  }
-    </script>
+    let isOpen = false;
+
+    function toggleMenu() {
+        const sidebar = document.getElementById('sidebar');
+        const logo = document.getElementById('logo');
+
+        isOpen = !isOpen;
+        sidebar.classList.toggle('open', isOpen);
+
+        if (isOpen) {
+            logo.src = 'img/Logo.png';  // Nowe logo
+            logo.classList.add('new-size');  // Dodanie klasy zmieniającej rozmiar
+        } else {
+            logo.src = 'img/Logo1.png';  // Powrót do starego logo
+            logo.classList.remove('new-size');  // Usunięcie klasy, przywracając stary rozmiar
+        }
+    }
+
+    // Zamknij menu po kliknięciu poza nim
+    document.addEventListener("click", function (event) {
+        const sidebar = document.getElementById('sidebar');
+        const logo = document.getElementById('logo');
+        const logoContainer = document.querySelector(".logo-container");
+
+        // Jeśli menu jest otwarte i kliknięto poza nim oraz poza logo
+        if (isOpen && !sidebar.contains(event.target) && !logoContainer.contains(event.target)) {
+            isOpen = false;
+            sidebar.classList.remove("open");
+            logo.src = 'img/Logo1.png'; // Przywracamy stare logo
+            logo.classList.remove("new-size");
+        }
+    });
+</script>
+
     
 </body>
 </html>
